@@ -1,20 +1,25 @@
+import pandas as pd
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route("/api/v1")
+@app.route("/")
 def home():
     return render_template("home.html")
 
 
-@app.route("/api/v1/<station_code>/<date>")
-def data(station_code, date):
+@app.route("/api/v1/<year>/<month>")
+def data(year, month):
+    month = month.upper()
+    df = pd.read_csv('temperatures/temperatures.csv')
+    temperature = df.loc[df['YEAR'] == int(year)][month].squeeze()
+
     return {
-        "Place": station_code,
-        "Date": date,
-        "Temperature": 32
+        "Month and Year": month + "-" + str(year),
+        "Temperature": temperature
     }
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
