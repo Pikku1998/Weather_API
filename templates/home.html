@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Temperature API</title>
+    <title>Temperature Data API</title>
 </head>
 <body>
-<h1>Temperature Data</h1>
+<h1>Temperature Data API</h1>
 <h4>Get the mean temperature value of India from 1901 to 2017</h4>
-<p>url format : http://127.0.0.1:5000/api/v1/year/month</p>
-<p>Example url: http://127.0.0.1:5000/api/v1/2017/jan</p>
+<p>url format : http://127.0.0.1:5000/api/in/_year_/_month_</p>
+<p>Example url: http://127.0.0.1:5000/api/in/2017/jan</p>
+<br>
+<br>
+<h4>Get the mean temperature value at different European weather stations from 1936 to 2021</h4>
+<p>url format : http://127.0.0.1:5000/api/eu/_stationcode_/_YYYYMMDD_</p>
+<p>Example url: http://127.0.0.1:5000/api/eu/100/20010331</p>
+<br>
+<p>Here is the list of stations</p>
+<p>{{data|safe}}</p>
 
 </body>
 </html>
